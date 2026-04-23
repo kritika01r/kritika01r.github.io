@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Marketing Dashboard</title>
+</head>
+
+<body>
+
+<h1>Campaign Analytics Dashboard</h1>
+
+<iframe 
+src="<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Marketer's Desk · Daily Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #F6F5F1;
+  --paper:     #FFFFFF;
+  --ink:       #111010;
+  --ink-70:    #3D3A36;
+  --ink-45:    #7A7670;
+  --ink-20:    #C8C4BC;
+  --ink-08:    #EDEBE5;
+  --ink-04:    #F4F2EE;
+
+  --campaigns:   #1B4FCC;
+  --culture:     #B5290F;
+  --brands:      #6B27A8;
+  --consumer:    #C47A0A;
+  --biz:         #1A6644;
+  --social:      #C4391A;
+  --apac:        #0E5F7A;
+  --tools:       #3D3D3D;
+
+  --shadow:    0 1px 3px rgba(17,16,16,0.06), 0 4px 12px rgba(17,16,16,0.04);
+  --shadow-lg: 0 2px 6px rgba(17,16,16,0.08), 0 8px 24px rgba(17,16,16,0.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Geist', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── TOPBAR ── */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 300;
+  height: 52px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink-20);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  gap: 12px;
+}
+
+.tb-left {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.tb-wordmark {
+  font-family: 'Instrument Serif', serif;
+  font-size: 19px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.tb-sub {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--ink-45);
+  text-transform: uppercase;
+  border-left: 1px solid var(--ink-20);
+  padding-left: 16px;
+}
+
+.tb-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tb-clock {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-45);
+}
+
+.tb-next {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-45);
+  background: var(--ink-04);
+  border: 1px solid var(--ink-08);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.tb-pip {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #16A34A;
+  box-shadow: 0 0 0 3px rgba(22,163,74,0.2);
+  animation: pip 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes pip { 0%,100%{box-shadow:0 0 0 3px rgba(22,163,74,0.2)} 50%{box-shadow:0 0 0 6px rgba(22,163,74,0.08)} }
+
+.btn-go {
+  font-family: 'Geist', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--ink);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.15s;
+  letter-spacing: 0.01em;
+}
+.btn-go:hover { opacity: 0.82; }
+.btn-go.spinning .ri { display: inline-block; animation: spin 0.75s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── PAGE ── */
+.page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 40px 72px;
+}
+
+/* ── BRIEF ── */
+.brief-wrap {
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 28px;
+}
+
+.brief-cap {
+  background: var(--ink);
+  padding: 13px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.brief-cap-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.live-tag {
+  background: #DC2626;
+  color: white;
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  padding: 3px 9px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.brief-cap-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+
+.brief-cap-ts {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+}
+
+.brief-body {
+  padding: 32px 36px 28px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  align-items: start;
+}
+
+.brief-main {}
+
+.brief-headline {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(22px, 2.8vw, 34px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.18;
+  color: var(--ink);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.brief-text {
+  font-size: 14.5px;
+  line-height: 1.82;
+  color: var(--ink-70);
+  font-weight: 300;
+  max-width: 680px;
+}
+
+.brief-loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink-45);
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+}
+
+.progbar {
+  width: 140px; height: 2px;
+  background: var(--ink-08);
+  border-radius: 1px; overflow: hidden;
+  flex-shrink: 0;
+}
+.progbar::after {
+  content: ''; display: block;
+  height: 100%; width: 32%;
+  background: var(--ink-45);
+  animation: prog 1.1s ease-in-out infinite;
+}
+@keyframes prog { 0%{transform:translateX(-100%)} 100%{transform:translateX(420%)} }
+
+/* Signal sidebar */
+.brief-signals {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-left: 1px solid var(--ink-08);
+  padding-left: 32px;
+}
+
+.sig {
+  padding: 11px 14px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+}
+
+.sig-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.sig-val {
+  font-size: 12px;
+  color: var(--ink-70);
+  line-height: 1.45;
+}
+
+/* ── TICKER ── */
+.ticker {
+  background: var(--ink);
+  border-radius: 6px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.ticker-badge {
+  background: var(--campaigns);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: white;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.ticker-scroll { overflow: hidden; flex: 1; }
+.ticker-inner {
+  display: flex;
+  gap: 52px;
+  white-space: nowrap;
+  animation: tick 45s linear infinite;
+}
+@keyframes tick { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+.ti {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+}
+
+.ti-pill {
+  font-family: 'Geist Mono', monospace;
+  font-size: 8px;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
+/* ── SECTION LABEL ── */
+.sec-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 28px 0 18px;
+}
+.sec-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+  white-space: nowrap;
+}
+.sec-line { flex: 1; height: 1px; background: var(--ink-08); }
+
+/* ── GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--ink-08);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+}
+.card:hover { box-shadow: var(--shadow-lg); border-color: var(--ink-20); transform: translateY(-1px); }
+
+.c4  { grid-column: span 4; }
+.c5  { grid-column: span 5; }
+.c6  { grid-column: span 6; }
+.c7  { grid-column: span 7; }
+.c8  { grid-column: span 8; }
+.c12 { grid-column: span 12; }
+
+.card-accent { height: 3px; flex-shrink: 0; }
+
+.card-head {
+  padding: 14px 18px 12px;
+  border-bottom: 1px solid var(--ink-04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.ch-left {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.ch-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ch-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ch-geo {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  color: var(--ink-45);
+  background: var(--ink-04);
+  border: 1px solid var(--ink-08);
+  padding: 2px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+/* source rows */
+.src-list { flex: 1; }
+
+.src-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 18px;
+  border-bottom: 1px solid var(--ink-04);
+  text-decoration: none;
+  gap: 8px;
+  transition: background 0.1s;
+}
+.src-row:last-child { border-bottom: none; }
+.src-row:hover { background: var(--ink-04); }
+
+.sr-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sr-desc {
+  font-size: 11px;
+  color: var(--ink-45);
+  font-family: 'Geist Mono', monospace;
+  margin-top: 1px;
+}
+
+.sr-go {
+  font-size: 13px;
+  color: var(--ink-20);
+  flex-shrink: 0;
+  transition: color 0.15s, transform 0.15s;
+}
+.src-row:hover .sr-go { color: var(--ink); transform: translate(2px,-2px); }
+
+/* ai signal footer */
+.card-sig {
+  padding: 12px 18px;
+  border-top: 1px solid var(--ink-04);
+  background: var(--ink-04);
+  flex-shrink: 0;
+}
+
+.cs-eyebrow {
+  font-family: 'Geist Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cs-eyebrow::before {
+  content: '';
+  width: 12px; height: 1px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.cs-body {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-70);
+  line-height: 1.6;
+}
+
+.mini-load {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-45);
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+}
+.mpb { width: 48px; height: 2px; background: var(--ink-08); overflow: hidden; }
+.mpb::after { content:''; display:block; height:100%; width:40%; background:var(--ink-20); animation:prog 1s ease-in-out infinite; }
+
+@media (max-width: 1100px) {
+  .brief-body { grid-template-columns: 1fr; }
+  .brief-signals { border-left: none; padding-left: 0; border-top: 1px solid var(--ink-08); padding-top: 20px; flex-direction: row; flex-wrap: wrap; }
+  .sig { flex: 1; min-width: 140px; }
+  .c4,.c5 { grid-column: span 6; }
+  .c7,.c8 { grid-column: span 12; }
+}
+
+@media (max-width: 780px) {
+  .page { padding: 20px 20px 48px; }
+  .topbar { padding: 0 20px; }
+  .tb-sub, .tb-next { display: none; }
+  .c4,.c5,.c6,.c7,.c8 { grid-column: span 12; }
+  .brief-body { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="tb-left">
+    <div class="tb-wordmark">The Marketer's Desk</div>
+    <div class="tb-sub">APAC-first · Daily Intelligence</div>
+  </div>
+  <div class="tb-right">
+    <div class="tb-pip"></div>
+    <div class="tb-clock" id="clock">--:-- --</div>
+    <div class="tb-next" id="nextBrief">Next: 09:00</div>
+    <button class="btn-go" id="refreshBtn" onclick="runRefresh()">
+      <span class="ri">↻</span> Refresh
+    </button>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- MORNING BRIEF -->
+  <div class="brief-wrap">
+    <div class="brief-cap">
+      <div class="brief-cap-left">
+        <span class="live-tag">Live</span>
+        <span class="brief-cap-label">Morning Brief · What every marketer needs to know today</span>
+      </div>
+      <div class="brief-cap-ts" id="briefTs">Generating...</div>
+    </div>
+    <div class="brief-body">
+      <div class="brief-main">
+        <div class="brief-headline" id="briefH">Reading the market...</div>
+        <div class="brief-text" id="briefT">
+          <div class="brief-loading">
+            <div class="progbar"></div>
+            Synthesising campaigns, culture, brands, business, APAC signals...
+          </div>
+        </div>
+      </div>
+      <div class="brief-signals" id="briefSigs"></div>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-badge">On the radar</div>
+    <div class="ticker-scroll">
+      <div class="ticker-inner" id="tickerInner"></div>
+    </div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="sec-row">
+    <div class="sec-label">Campaigns, Culture & Consumer</div>
+    <div class="sec-line"></div>
+  </div>
+  <div class="grid" id="grid1"></div>
+
+  <!-- SECTION 2 -->
+  <div class="sec-row">
+    <div class="sec-label">Business, APAC Markets & Tools</div>
+    <div class="sec-line"></div>
+  </div>
+  <div class="grid" id="grid2"></div>
+
+</div>
+
+<script>
+const CATS = [
+  {
+    id: 'campaigns', label: 'Campaigns & Creative', color: '#1B4FCC',
+    geo: 'Global · APAC focus', grid: 1, span: 'c5',
+    sources: [
+      { name: 'Campaign Asia-Pacific', desc: 'APAC agency & campaign news',   url: 'https://www.campaignasia.com' },
+      { name: 'The Drum',              desc: 'Global creative & marketing',   url: 'https://www.thedrum.com' },
+      { name: 'Contagious',            desc: 'World\'s best campaign ideas',  url: 'https://www.contagious.com' },
+      { name: 'LBB Online',            desc: 'Creative work from APAC & beyond', url: 'https://lbbonline.com' },
+      { name: 'AdAge',                 desc: 'Industry news & awards',        url: 'https://adage.com' },
+    ],
+    prompt: `You are a senior marketer's morning intelligence feed. What are the most talked-about marketing campaigns and creative work right now — globally and in APAC? Which brand is doing something genuinely unexpected or setting a new benchmark? What should a senior marketer reference in their next meeting? 3 sharp signals. Max 70 words.`
+  },
+  {
+    id: 'culture', label: 'Culture & Entertainment', color: '#B5290F',
+    geo: 'Korea · Japan · SEA · Global', grid: 1, span: 'c4',
+    sources: [
+      { name: 'Soompi',            desc: 'KPOP & Korean entertainment',   url: 'https://www.soompi.com' },
+      { name: 'Hypebeast',         desc: 'Streetwear, drops & culture',   url: 'https://hypebeast.com' },
+      { name: 'Highsnobiety',      desc: 'Culture, fashion & music',      url: 'https://www.highsnobiety.com' },
+      { name: 'Variety Asia',      desc: 'APAC entertainment business',   url: 'https://variety.com/v/asia/' },
+      { name: 'Billboard K-Town',  desc: 'KPOP charts & artist momentum', url: 'https://www.billboard.com/k-town/' },
+    ],
+    prompt: `You are a senior marketer tracking culture to stay ahead. What cultural moments, artists, shows, or fandoms are generating genuine consumer energy right now in APAC and globally? What should a brand be paying attention to before it becomes mainstream? Which cultural wave is about to hit consumer spending? 3 signals. Max 70 words.`
+  },
+  {
+    id: 'consumer', label: 'Consumer Trends', color: '#C47A0A',
+    geo: 'APAC · Global', grid: 1, span: 'c3',
+    sources: [
+      { name: 'Mintel',          desc: 'Consumer insight reports',      url: 'https://www.mintel.com/press-centre/' },
+      { name: 'Euromonitor',     desc: 'Market & consumer data',        url: 'https://www.euromonitor.com/articles' },
+      { name: 'WARC',            desc: 'Marketing effectiveness intel', url: 'https://www.warc.com' },
+      { name: 'Think with Google', desc: 'Consumer behaviour insights', url: 'https://www.thinkwithgoogle.com' },
+    ],
+    prompt: `You are a senior marketer's consumer intelligence feed. What are the most significant shifts in consumer behaviour right now — in APAC or globally? What are people buying, rejecting, or feeling differently about? What insight should inform the next campaign brief? 3 signals. Max 70 words.`
+  },
+  {
+    id: 'brands', label: 'Brand Moves & Partnerships', color: '#6B27A8',
+    geo: 'Global · APAC', grid: 1, span: 'c6',
+    sources: [
+      { name: 'Business of Fashion',   desc: 'Brand strategy & luxury',        url: 'https://www.businessoffashion.com' },
+      { name: 'License Global',        desc: 'IP licensing & brand collabs',   url: 'https://www.licenseglobal.com' },
+      { name: 'Marketing Week',        desc: 'Brand strategy & CMO moves',     url: 'https://www.marketingweek.com' },
+      { name: 'SportsPro',             desc: 'Sports sponsorship signings',    url: 'https://www.sportspromedia.com' },
+      { name: 'Hollywood Reporter',    desc: 'Entertainment brand deals',      url: 'https://www.hollywoodreporter.com' },
+    ],
+    prompt: `You are a senior marketer tracking brand strategy and partnerships. What major brand collabs, sponsorship signings, IP deals, or marketing partnerships have been announced recently? Which brands are moving smart — and which are losing ground? What deal should every marketer know about this week? 3 signals, specific brand names. Max 70 words.`
+  },
+  {
+    id: 'social', label: 'Social & Digital Media', color: '#C4391A',
+    geo: 'Global · APAC', grid: 1, span: 'c6',
+    sources: [
+      { name: 'Social Media Today',  desc: 'Platform updates & strategy',   url: 'https://www.socialmediatoday.com' },
+      { name: 'Later Blog',          desc: 'Instagram & TikTok strategy',   url: 'https://www.later.com/blog/' },
+      { name: 'Creator Economy',     desc: 'Influencer & creator news',     url: 'https://www.creatoreconomy.so' },
+      { name: 'TechCrunch Social',   desc: 'Platform product changes',      url: 'https://techcrunch.com/tag/social/' },
+      { name: 'Marketing Brew',      desc: 'Marketing industry daily',      url: 'https://www.marketingbrew.com' },
+    ],
+    prompt: `You are a senior marketer's digital intelligence feed. What are the most important social media platform changes, algorithm shifts, or creator economy developments this week? What's working on TikTok, Instagram, YouTube right now in APAC? What format or trend should marketers be testing today? 3 sharp signals. Max 70 words.`
+  },
+  {
+    id: 'biz', label: 'Business & Economy', color: '#1A6644',
+    geo: 'APAC-first · Global', grid: 2, span: 'c4',
+    sources: [
+      { name: 'Nikkei Asia',           desc: 'APAC business & economy',     url: 'https://asia.nikkei.com' },
+      { name: 'Bloomberg Asia',        desc: 'Markets & macro intelligence', url: 'https://www.bloomberg.com/asia' },
+      { name: 'South China Morning Post', desc: 'China economy & business',  url: 'https://www.scmp.com' },
+      { name: 'Financial Times',       desc: 'Global business context',      url: 'https://www.ft.com' },
+    ],
+    prompt: `You are a senior marketer who needs to understand the economic context shaping consumer and advertiser behaviour. What are the most important macro signals this week in APAC and globally? Consumer confidence, advertiser spend shifts, major corporate moves, or trade developments that affect marketing budgets or audience behaviour. 3 signals. Max 70 words.`
+  },
+  {
+    id: 'apac', label: 'APAC Market Intelligence', color: '#0E5F7A',
+    geo: 'China · Korea · SEA · India · ANZ', grid: 2, span: 'c5',
+    sources: [
+      { name: 'Jing Daily',        desc: 'China luxury & consumer',      url: 'https://jingdaily.com' },
+      { name: 'Tech In Asia',      desc: 'SEA startup & digital market', url: 'https://www.techinasia.com' },
+      { name: 'KR Asia',           desc: 'Korea & Asia tech business',   url: 'https://kr.asia' },
+      { name: 'Economic Times',    desc: 'India consumer & digital',     url: 'https://economictimes.com' },
+      { name: 'Inside Retail Asia',desc: 'APAC retail & commerce',       url: 'https://insideretail.asia' },
+    ],
+    prompt: `You are a senior marketer covering APAC. What are the most important market-specific signals this week across China, Korea, SEA, India, and Australia? Consumer spending shifts, digital platform moves, retail trends, or cultural moments that differ by market. What does someone running APAC campaigns need to know today? 3 specific, market-named signals. Max 70 words.`
+  },
+  {
+    id: 'tools', label: 'AI & MarTech Tools', color: '#3D3D3D',
+    geo: 'Global', grid: 2, span: 'c3',
+    sources: [
+      { name: 'The Rundown AI',     desc: 'Daily AI tool intelligence',   url: 'https://www.therundown.ai' },
+      { name: 'Marketing AI Institute', desc: 'AI for marketers',         url: 'https://www.marketingaiinstitute.com' },
+      { name: 'Product Hunt',       desc: 'New tool launches daily',      url: 'https://www.producthunt.com' },
+      { name: 'Google Marketing Live', desc: 'Google Ads & AI updates',   url: 'https://marketinglive.google' },
+    ],
+    prompt: `You are a senior marketer tracking AI tools that actually save time or improve campaign results. What are the most useful AI or MarTech tools launched or updated this week? Which ones specifically help with creative testing, audience intelligence, content production, or campaign analytics? Practical tools, specific names, real use cases. 3 signals. Max 70 words.`
+  },
+];
+
+const TICKER = [
+  { pill:'CAMPAIGNS', bg:'#DBEAFE', col:'#1B4FCC', text:'What campaign is everyone talking about this week?' },
+  { pill:'CULTURE',   bg:'#FEE2E2', col:'#B91C1C', text:'Which fandom or cultural moment is driving consumer spending?' },
+  { pill:'BRANDS',    bg:'#EDE9FE', col:'#6B27A8', text:'Who just announced the collab nobody saw coming?' },
+  { pill:'SOCIAL',    bg:'#FFEDD5', col:'#C4391A', text:'What platform change broke every marketer\'s schedule?' },
+  { pill:'APAC',      bg:'#CFFAFE', col:'#0E5F7A', text:'Which APAC market is moving fastest right now?' },
+  { pill:'CONSUMER',  bg:'#FEF9C3', col:'#854D0E', text:'What are people buying more of — or walking away from?' },
+  { pill:'BIZ',       bg:'#DCFCE7', col:'#1A6644', text:'How are ad budgets shifting across APAC this quarter?' },
+  { pill:'TOOLS',     bg:'#F3F4F6', col:'#3D3D3D', text:'Which AI tool just made a whole job role 10x faster?' },
+];
+
+// signal meta
+const SIG_META = {
+  CAMPAIGNS: { bg:'#EFF4FF', border:'#1B4FCC', color:'#1B4FCC' },
+  CULTURE:   { bg:'#FFF1F0', border:'#B5290F', color:'#B5290F' },
+  CONSUMER:  { bg:'#FFFBEB', border:'#C47A0A', color:'#C47A0A' },
+  BRANDS:    { bg:'#F5F0FF', border:'#6B27A8', color:'#6B27A8' },
+  SOCIAL:    { bg:'#FFF2EE', border:'#C4391A', color:'#C4391A' },
+  APAC:      { bg:'#EDFCFF', border:'#0E5F7A', color:'#0E5F7A' },
+};
+
+function buildTicker() {
+  const items = [...TICKER, ...TICKER];
+  document.getElementById('tickerInner').innerHTML = items.map(t =>
+    `<div class="ti">
+      <span class="ti-pill" style="background:${t.bg};color:${t.col}">${t.pill}</span>
+      ${t.text}
+    </div>`
+  ).join('');
+}
+
+function buildCards() {
+  document.getElementById('grid1').innerHTML = '';
+  document.getElementById('grid2').innerHTML = '';
+  CATS.forEach(cat => {
+    const div = document.createElement('div');
+    div.className = `card ${cat.span}`;
+    div.innerHTML = `
+      <div class="card-accent" style="background:${cat.color}"></div>
+      <div class="card-head">
+        <div class="ch-left">
+          <div class="ch-dot" style="background:${cat.color}"></div>
+          <div class="ch-name" style="color:${cat.color}">${cat.label}</div>
+        </div>
+        <div class="ch-geo">${cat.geo}</div>
+      </div>
+      <div class="src-list">
+        ${cat.sources.map(s => `
+          <a class="src-row" href="${s.url}" target="_blank" rel="noopener">
+            <div>
+              <div class="sr-name">${s.name}</div>
+              <div class="sr-desc">${s.desc}</div>
+            </div>
+            <div class="sr-go">↗</div>
+          </a>
+        `).join('')}
+      </div>
+      <div class="card-sig">
+        <div class="cs-eyebrow">Today's signal</div>
+        <div class="cs-body" id="sig-${cat.id}">
+          <div class="mini-load"><div class="mpb"></div><span>Generating...</span></div>
+        </div>
+      </div>
+    `;
+    document.getElementById(`grid${cat.grid}`).appendChild(div);
+  });
+}
+
+async function callClaude(prompt) {
+  const r = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      messages: [{ role: 'user', content: prompt }]
+    })
+  });
+  const d = await r.json();
+  return d.content?.[0]?.text || '';
+}
+
+async function generateBrief() {
+  const hEl = document.getElementById('briefH');
+  const tEl = document.getElementById('briefT');
+  const sEl = document.getElementById('briefSigs');
+  const tsEl = document.getElementById('briefTs');
+
+  hEl.textContent = 'Reading the market...';
+  tEl.innerHTML = `<div class="brief-loading"><div class="progbar"></div>Synthesising campaigns · culture · brands · social · APAC...</div>`;
+  sEl.innerHTML = '';
+
+  const prompt = `You are the morning intelligence desk for a senior marketer. They need to walk into any meeting today — with a CMO, a client, a media partner — and know more than everyone else in the room.
+
+Cover: what campaigns are breaking through, what cultural moment is driving consumer energy, what brand move everyone will talk about, what's shifting on social platforms, and what APAC market signal changes the picture.
+
+Reply in this EXACT format:
+
+HEADLINE: [One editorial sentence. Should sound like the front page of a marketing trade paper. Max 15 words.]
+
+BRIEF: [3 sentences. Sharp, specific, senior-marketer-level synthesis. Name brands, platforms, markets. What is the single most important thing a marketer needs to understand about the market right now?]
+
+CAMPAIGNS: [12 words max]
+CULTURE: [12 words max]
+BRANDS: [12 words max]
+SOCIAL: [12 words max]
+APAC: [12 words max]`;
+
+  try {
+    const res = await callClaude(prompt);
+    const hm = res.match(/HEADLINE:\s*(.+)/);
+    const bm = res.match(/BRIEF:\s*([\s\S]+?)(?=\nCAMPAIGNS:)/);
+
+    hEl.textContent = hm?.[1]?.trim() || "What every marketer needs to know today";
+    tEl.innerHTML = `<div style="font-size:14.5px;line-height:1.82;color:var(--ink-70);font-weight:300">${bm?.[1]?.trim() || res}</div>`;
+
+    const keys = ['CAMPAIGNS','CULTURE','BRANDS','SOCIAL','APAC'];
+    const chips = keys.map(k => {
+      const val = res.match(new RegExp(k + ':\\s*(.+)'))?.[1]?.trim();
+      if (!val) return '';
+      const m = SIG_META[k];
+      return `<div class="sig" style="background:${m.bg};border-color:${m.border}22">
+        <div class="sig-label" style="color:${m.color}">${k}</div>
+        <div class="sig-val">${val}</div>
+      </div>`;
+    }).join('');
+    sEl.innerHTML = chips;
+
+    tsEl.textContent = 'Updated ' + new Date().toLocaleString('en-SG', {timeZone:'Asia/Singapore',hour:'2-digit',minute:'2-digit',hour12:false}) + ' SGT';
+  } catch(e) {
+    tEl.innerHTML = `<div style="color:var(--ink-45);font-size:13px;font-family:'Geist Mono',monospace">Open in browser to generate live brief.</div>`;
+    hEl.textContent = "The Marketer's Desk · Ready";
+    tsEl.textContent = 'Offline';
+  }
+}
+
+async function generateSignals() {
+  for (const cat of CATS) {
+    const el = document.getElementById(`sig-${cat.id}`);
+    if (!el) continue;
+    try {
+      const t = await callClaude(cat.prompt);
+      el.textContent = t;
+    } catch(e) {
+      el.innerHTML = `<span style="color:var(--ink-45)">Open in browser to generate</span>`;
+    }
+    await new Promise(r => setTimeout(r, 300));
+  }
+}
+
+function tick() {
+  const now = new Date();
+  document.getElementById('clock').textContent =
+    now.toLocaleTimeString('en-SG',{timeZone:'Asia/Singapore',hour:'2-digit',minute:'2-digit',hour12:true});
+
+  const parts = new Intl.DateTimeFormat('en-SG',{timeZone:'Asia/Singapore',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(now);
+  const h = parseInt(parts.find(p=>p.type==='hour').value);
+  const m = parseInt(parts.find(p=>p.type==='minute').value);
+  const left = h < 9 ? (9*60-(h*60+m)) : (24*60-(h*60+m)+9*60);
+  document.getElementById('nextBrief').textContent = `Next: 09:00 SGT (${Math.floor(left/60)}h ${left%60}m)`;
+
+  if (h===9 && m===0 && now.getSeconds()<5 && !window._9am) {
+    window._9am = true;
+    runRefresh();
+    setTimeout(()=>{ window._9am=false; }, 120000);
+  }
+}
+setInterval(tick, 1000); tick();
+
+async function runRefresh() {
+  const btn = document.getElementById('refreshBtn');
+  btn.classList.add('spinning');
+  buildCards();
+  await Promise.all([generateBrief(), generateSignals()]);
+  btn.classList.remove('spinning');
+}
+
+setInterval(runRefresh, 30*60*1000);
+
+buildTicker();
+buildCards();
+generateBrief();
+generateSignals();
+</script>
+</body>
+</html>"
+width="100%"
+height="800"
+frameborder="0">
+</iframe>
+
+</body>
+</html>
